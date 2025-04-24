@@ -1,0 +1,268 @@
+/*
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #f7df1eaa);
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+*/
+
+/* style.css */
+
+header {
+  position: absolute;
+  top: 1px;
+  left: 20px;
+  z-index: 10;
+}
+
+.logo-esquina {
+  width: 150px;
+  height: auto;
+}
+
+
+
+/* Encabezado fijo estilo institucional */
+.encabezado {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  z-index: 1000;
+}
+
+/* Logo dentro del encabezado */
+.logo {
+  height: 250px;
+  width: auto;
+}
+
+/* Ajuste del contenido principal */
+#app {
+  padding-top: 100px; /* asegura espacio debajo del header */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #f9f9f9;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  min-height: 100vh;
+}
+
+img {
+  margin-top: 10px;
+  width: 200px;
+}
+
+h1 {
+  margin-top: 20px;
+  font-size: 2em;
+  color: #333;
+}
+
+p {
+  color: #555;
+}
+.scroll-espacio {
+  width: 100vw;  /* permite scroll horizontal */
+  height: 200vh; /* permite scroll vertical */
+  overflow: visible;
+  position: relative;
+}
+
+/* contenedor de globitos distribuido en canvas */
+.globitos-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* base de globito */
+.globito {
+  position: absolute;
+  max-width: 260px;
+  padding: 14px 20px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-style: italic;
+  color: #444;
+  line-height: 1.4;
+  pointer-events: none;
+  border: 2px solid #ddd;
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.08);
+  /*animation: flotando 4s infinite ease-in-out alternate;*/
+}
+
+/* colores variados */
+.globito:nth-child(6n+1) { background: #fff8e1; border-color: #ffe082; }
+.globito:nth-child(6n+2) { background: #e1f5fe; border-color: #81d4fa; }
+.globito:nth-child(6n+3) { background: #fce4ec; border-color: #f48fb1; }
+.globito:nth-child(6n+4) { background: #e8f5e9; border-color: #a5d6a7; }
+.globito:nth-child(6n+5) { background: #ede7f6; border-color: #b39ddb; }
+.globito:nth-child(6n+6) { background: #f3e5f5; border-color: #ce93d8; }
+
+/* nubesita de pensamiento */
+.globito::before,
+.globito::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: inherit;
+  border: inherit;
+}
+.globito::before {
+  width: 14px;
+  height: 14px;
+  bottom: -18px;
+  left: 20px;
+}
+.globito::after {
+  width: 8px;
+  height: 8px;
+  bottom: -28px;
+  left: 15px;
+}
+
+/* animación flotante */
+@keyframes flotando {
+  0%   { transform: translateY(0px) translateX(0px) rotate(0deg); }
+  100% { transform: translateY(-10px) translateX(10px) rotate(1deg); }
+}
+
+/* Posicionamiento aleatorio manual (ejemplo) */
+.globito-1 { top: 124vh; left: 46vw; }
+.globito-2 { top: 150vh; left: 56vw; }
+.globito-3 { top: 16vh; left: 35vw; }
+.globito-4 { top: 32vh; left: 17vw; }
+.globito-5 { top: 30vh; left: 19vw; }
+.globito-6 { top: 122vh; left: 38vw; }
+.globito-7 { top: 177vh; left: 20vw; }
+.globito-8 { top: 77vh; left: 77vw; }
+.globito-9 { top: 65vh; left: 87vw; }
+.globito-10 { top: 108vh; left: 51vw; }
+.globito-11 { top: 6vh; left: 55vw; }
+.globito-12 { top: 78vh; left: 84vw; }
+.globito-13 { top: 29vh; left: 94vw; }
+.globito-14 { top: 95vh; left: 38vw; }
+.globito-15 { top: 88vh; left: 47vw; }
+.globito-16 { top: 38vh; left: 76vw; }
+.globito-17 { top: 88vh; left: 8vw; }
+.globito-18 { top: 63vh; left: 95vw; }
+.globito-19 { top: 141vh; left: 70vw; }
+.globito-20 { top: 124vh; left: 20vw; }
+.globito-21 { top: 48vh; left: 67vw; }
+.globito-22 { top: 41vh; left: 7vw; }
+.globito-23 { top: 130vh; left: 56vw; }
+.globito-24 { top: 29vh; left: 33vw; }
+.globito-25 { top: 116vh; left: 28vw; }
+.globito-26 { top: 65vh; left: 36vw; }
+.globito-27 { top: 141vh; left: 05vw; }
+.globito-28 { top: 32vh; left: 47vw; }
+.globito-29 { top: 34vh; left: 15vw; }
+.globito-30 { top: 97vh; left: 89vw; }
+.globito-31 { top: 99vh; left: 51vw; }
+.globito-32 { top: 62vh; left: 85vw; }
+.globito-33 { top: 71vh; left: 13vw; }
+.globito-34 { top: 147vh; left: 94vw; }
+
